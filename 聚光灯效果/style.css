@@ -45,7 +45,7 @@ h1 {
 }
 h1::before {
   position: absolute;
-  /* 中文这里必须时unicode编码 */
+  /* 中文这里必须是unicode编码 */
   content: "TRAFAL";
   /* 颜色改为透明让背景显示出来 */
   color: transparent;
