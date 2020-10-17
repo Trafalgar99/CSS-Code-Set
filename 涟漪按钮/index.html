@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bt">这是一个按钮</div>
+    <script>
+      const bt = document.querySelector("div.bt");
+      bt.addEventListener("click", (e) => {
+        let offsetLeft = e.target.offsetLeft;
+        let offsetTop = e.target.offsetTop;
+        // console.log(offsetLeft, offsetTop);
+        if (e.target.nodeName == "SPAN") {
+          offsetLeft = e.target.offsetParent.offsetLeft;
+          offsetTop = e.target.offsetParent.offsetTop;
+        }
+        let x = e.clientX - offsetLeft;
+        let y = e.clientY - offsetTop;
+
+        // console.log(e.clientX, e.clientY);
+
+        // console.log("1:", x, y);
+        // console.log("2:", e.offsetX, e.offsetY);
+        let ripple = document.createElement("span");
+        ripple.style.left = x + "px";
+        ripple.style.top = y + "px";
+        ripple.addEventListener("animationend", (e) => e.target.remove());
+        bt.appendChild(ripple);
+
+        // setTimeout(() => {
+        //   ripple.remove();
+        // }, 1000);
+      });
+    </script>
+  </body>
+</html>
