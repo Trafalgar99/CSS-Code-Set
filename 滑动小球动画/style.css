@@ -1,0 +1,98 @@
+:root {
+  --background-color: #e3dbbf;
+  --color3: #0f468b;
+  --color4: #06b58f;
+  --color5: #ffc863;
+  --color6: #ed4eff;
+  --color7: #ef8054;
+  --color8: #b9bf7a;
+  --color1: #fe3a21;
+  --color2: #fc78a7;
+  --border-color: #7690ae;
+  --text-color: #344758;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 14px;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+.container .fence {
+  height: 100%;
+  width: 20px;
+  border-radius: 20px;
+  background-color: #00b894;
+}
+.container .fence:nth-child(1) {
+  background-color: var(--color1);
+}
+.container .fence:nth-child(2) {
+  background-color: var(--color2);
+}
+.container .fence:nth-child(3) {
+  background-color: var(--color3);
+}
+.container .fence:nth-child(4) {
+  background-color: var(--color4);
+}
+.container .fence:nth-child(5) {
+  background-color: var(--color5);
+}
+.container .fence:nth-child(6) {
+  background-color: var(--color6);
+}
+.container .fence:nth-child(7) {
+  background-color: var(--color7);
+}
+.container .fence:nth-child(8) {
+  background-color: var(--color8);
+}
+.container .circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-color: var(--background-color);
+  border-radius: 100%;
+  top: -130%;
+  transform: rotate(45deg);
+  /* alternate实奇偶反向执行动画 */
+  animation: flow 2s ease-in-out infinite alternate;
+}
+.container .circle::after {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  bottom: 2px;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, 0%);
+}
+@keyframes flow {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
