@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="clock_box">
+        <div class="clock">
+            <p id="time">12:12:12 AM</p>
+        </div>
+    </div>
+    <script>
+        let time = document.querySelector('#time');
+        let flag = "AM";
+
+        setInterval(() => {
+            let date = new Date();
+            let hour = date.getHours();
+            let minute = date.getMinutes();
+            let second = date.getSeconds();
+            if(hour>12){ 
+                hour -= 12;
+                flag = "PM"
+            }
+            else{
+                flag = "AM";
+            }
+            time.textContent = `${hour<10?'0'+hour:hour}:${minute<10?'0'+minute:minute}:${second<10?'0'+second:second} ${flag}`
+        }, 1000);
+        
+    </script>
+</body>
+</html>
